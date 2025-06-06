@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="200"
+   height="60"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <style
+       type="text/css"
+       id="style1">
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700=swap');
+        </style>
+  </defs>
+  <text
+     x="100"
+     y="30"
+     dominant-baseline="middle"
+     text-anchor="middle"
+     font-family="Poppins, sans-serif"
+     font-size="32px"
+     font-weight="700"
+     fill="#0056b3"
+     stroke="#ffd700"
+     stroke-width="5"
+     paint-order="stroke"
+     letter-spacing="-3"
+     id="text1">HR net</text>
+</svg>
