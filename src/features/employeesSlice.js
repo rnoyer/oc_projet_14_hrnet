@@ -8,6 +8,7 @@ export const formSlice = createSlice({
   reducers: {
     addEmployee: (state, action) => {
       state.value.push(action.payload);
+      // state.value = [...state.value, action.payload];
     },
   },
 });
