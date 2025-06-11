@@ -8,160 +8,62 @@ import {
 import { useState, useReducer } from "react";
 
 export default function Table({ hrdata }) {
-  console.log(hrdata);
-  const defaultData = [
-    {
-      firstName: "tanner",
-      lastName: "linsley",
-      age: 24,
-      visits: 100,
-      status: "In Relationship",
-      progress: 50,
-    },
-    {
-      firstName: "tandy",
-      lastName: "miller",
-      age: 40,
-      visits: 40,
-      status: "Single",
-      progress: 80,
-    },
-    {
-      firstName: "joe",
-      lastName: "dirte",
-      age: 45,
-      visits: 20,
-      status: "Complicated",
-      progress: 10,
-    },
-  ];
-
   const columnHelper = createColumnHelper();
-
-  const hrDataTest = [
-    {
-      firstName: "tanner",
-      lastName: "linsley",
-    },
-    {
-      city: "SAINT-JEAN-DE-LUZ (64)",
-      "date-of-birth": "2025-05-29",
-      department: "Marketing",
-      "first-name": "Marina",
-      "last-name": "NOYER",
-      "start-date": "2025-06-05",
-      state: "IA",
-      street: "14 allée gorena",
-      "zip-code": "64500",
-    },
-    {
-      city: "",
-      "first-name": "romain",
-      "last-name": "noyer",
-      street: "",
-      "zip-code": "",
-    },
-  ];
-
-  const hrDataTest2 = [
-    {
-      city: "SAINT-JEAN-DE-LUZ (64)",
-      dateofbirth: "2025-05-29",
-      department: "Marketing",
-      firstname: "Marina",
-      lastname: "NOYER",
-      startdate: "2025-06-05",
-      state: "IA",
-      street: "14 allée gorena",
-      zipcode: "64500",
-    },
-  ];
-
-  const hrColumns = [
-    columnHelper.accessor("city", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("firstname", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("lastname", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("startdate", {
-      cell: (info) => info.renderValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("department", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("dateofbirthh", {
-      cell: (info) => info.renderValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("street", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-
-    columnHelper.accessor("state", {
-      cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor("zipcode", {
-      cell: (info) => info.renderValue(),
-      footer: (info) => info.column.id,
-    }),
-  ];
 
   const columns = [
     columnHelper.accessor("firstName", {
       cell: (info) => info.getValue(),
-      footer: (info) => info.column.id,
+      header: () => <span>First Name</span>,
     }),
-    columnHelper.accessor((row) => row.lastName, {
-      id: "lastName",
-      cell: (info) => <i>{info.getValue()}</i>,
+    columnHelper.accessor("lastName", {
+      cell: (info) => info.getValue(),
       header: () => <span>Last Name</span>,
-      footer: (info) => info.column.id,
     }),
-    columnHelper.accessor("age", {
-      header: () => "Age",
-      cell: (info) => info.renderValue(),
-      footer: (info) => info.column.id,
+    columnHelper.accessor("startDate", {
+      cell: (info) => info.getValue(),
+      header: () => <span>Start Date</span>,
     }),
-    columnHelper.accessor("visits", {
-      header: () => <span>Visits</span>,
-      footer: (info) => info.column.id,
+    columnHelper.accessor("department", {
+      cell: (info) => info.getValue(),
+      header: () => <span>Department</span>,
     }),
-    columnHelper.accessor("status", {
-      header: "Status",
-      footer: (info) => info.column.id,
+    columnHelper.accessor("dateofbirth", {
+      cell: (info) => info.getValue(),
+      header: () => <span>Date of Birth</span>,
     }),
-    columnHelper.accessor("progress", {
-      header: "Profile Progress",
-      footer: (info) => info.column.id,
+    columnHelper.accessor("street", {
+      cell: (info) => info.getValue(),
+      header: () => <span>Street</span>,
+    }),
+    columnHelper.accessor("city", {
+      cell: (info) => info.getValue(),
+      header: () => <span>City</span>,
+    }),
+    columnHelper.accessor("state", {
+      cell: (info) => info.getValue(),
+      header: () => <span>State</span>,
+    }),
+    columnHelper.accessor("zipcode", {
+      cell: (info) => info.getValue(),
+      header: () => <span>Zipcode</span>,
     }),
   ];
 
-  const [data, _setData] = useState(() => [...hrDataTest2]);
+  const [data, _setData] = useState(() => [...hrdata]);
   const rerender = useReducer(() => ({}), {})[1];
 
   const table = useReactTable({
     data,
-    hrColumns,
+    columns,
     getCoreRowModel: getCoreRowModel(),
   });
-  console.log(table.getHeaderGroups());
+
   return (
     <div className="p-2">
-      <table>
+      <table className="table table-zebra">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className="hover:bg-base-300">
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
                   {header.isPlaceholder

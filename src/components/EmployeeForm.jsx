@@ -21,44 +21,44 @@ export default function EmployeeForm() {
   return (
     <div className="flex flex-col items-center">
       <form className="flex flex-col gap-4" onSubmit={submitForm} method="post">
-        <label htmlFor="first-name" className="floating-label">
+        <label htmlFor="firstName" className="floating-label">
           <span>First Name</span>
           <input
             type="text"
-            id="first-name"
+            id="firstName"
             placeholder="First Name"
             className="input input-md"
             onChange={inputLogger}
           />
         </label>
 
-        <label htmlFor="last-name" className="floating-label">
+        <label htmlFor="lastName" className="floating-label">
           <span>Last Name</span>
           <input
             type="text"
-            id="last-name"
+            id="lastName"
             placeholder="Last Name"
             className="input input-md"
             onChange={inputLogger}
           />
         </label>
 
-        <label htmlFor="date-of-birth" className="floating-label">
+        <label htmlFor="dateofbirth" className="floating-label">
           <span>Date of Birth</span>
           <input
             type="date"
-            id="date-of-birth"
+            id="dateofbirth"
             placeholder="Date of Birth"
             className="input input-md"
             onChange={inputLogger}
           />
         </label>
 
-        <label htmlFor="start-date" className="floating-label">
+        <label htmlFor="startDate" className="floating-label">
           <span>Start Date</span>
           <input
             type="date"
-            id="start-date"
+            id="startDate"
             placeholder="Start Date"
             className="input input-md"
             onChange={inputLogger}
@@ -101,11 +101,11 @@ export default function EmployeeForm() {
             <StateList />
           </select>
 
-          <label htmlFor="zip-code" className="floating-label">
+          <label htmlFor="zipcode" className="floating-label">
             <span>Zip Code</span>
             <input
               type="number"
-              id="zip-code"
+              id="zipcode"
               placeholder="Zip Code"
               className="input input-md"
               pattern="[0-9]{5}"
