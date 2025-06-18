@@ -8,7 +8,6 @@ export default function Viewpage() {
   return (
     <>
       <Header title="Current Employees" currentLink={false}></Header>
-      <h1 className="text-3xl font-bold">Viewpage</h1>
       <Table hrdata={employeeList} />
     </>
   );
