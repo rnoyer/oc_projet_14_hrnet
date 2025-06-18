@@ -13,9 +13,9 @@ export default function Header({ title, currentLink = true }) {
           View Current <br /> Employees
         </NavLink>
       ) : (
-        <div className="py-8 px-8 text-transparent">
-          View Current <br /> Employees
-        </div>
+        <NavLink to={"/"} className="py-8 px-8 btn">
+          Home
+        </NavLink>
       )}
     </header>
   );

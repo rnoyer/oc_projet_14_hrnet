@@ -7,6 +7,7 @@ import {
   getFilteredRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { NavLink } from "react-router";
 
 import { useState } from "react";
 
@@ -84,7 +85,7 @@ export default function Table({ hrdata }) {
 
   return (
     <div className="p-2">
-      <div className="flex justify-between">
+      <div className="flex justify-between m-4">
         <div className="flex justify-start items-center gap-2">
           <span>Show </span>
           <select
@@ -94,7 +95,7 @@ export default function Table({ hrdata }) {
             }}
             className="select w-20"
           >
-            {[5, 10, 25, 30, 40, 50].map((pageSize) => (
+            {[5, 10, 25, 30, 40].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
                 {pageSize}
               </option>
@@ -198,8 +199,7 @@ export default function Table({ hrdata }) {
           ))}
         </tfoot>
       </table>
-      <div className="h-4" />
-      <div className="flex justify-center items-center gap-2">
+      <div className="flex justify-center items-center gap-2 m-4">
         <button
           onClick={() => table.firstPage()}
           disabled={!table.getCanPreviousPage()}
@@ -232,9 +232,6 @@ export default function Table({ hrdata }) {
           {">>"}
         </button>
       </div>
-      {/* <button onClick={() => rerender()} className="border p-2">
-        Rerender
-      </button> */}
     </div>
   );
 }
